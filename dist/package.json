@@ -1,7 +1,7 @@
 {
   "name": "grid-react-19",
   "description": "Add spreadsheet-like behavior to your React app.",
-  "version": "4.2.0",
+  "version": "4.3.0",
   "homepage": "https://reactgrid.com",
   "license": "MIT",
   "author": "Silevis Software",
@@ -54,8 +54,8 @@
     "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "react": "^16.13.1 || ^17.0.0 || ^18.2.0",
-    "react-dom": "^16.13.1 || ^17.0.0 || ^18.2.0"
+    "react": "^16.13.1 || ^17.0.0 || ^18.2.0 || ^19.0.0",
+    "react-dom": "^16.13.1 || ^17.0.0 || ^18.2.0 || ^19.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -85,5 +85,9 @@
   "dependencies": {
     "sass": "^1.85.1",
     "tslib": "^2.8.1"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }
