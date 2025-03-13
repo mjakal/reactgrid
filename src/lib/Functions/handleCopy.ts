@@ -21,10 +21,10 @@ export function copyDataCommands(event: ClipboardEvent, state: State, div: HTMLD
         event.clipboardData.setData('text/html', div.innerHTML);
     } else if (supportNavigatorClipboard) {
         const clipboardItemData = {
-          "text/html": div.innerHtml,
+          "text/html": div.innerHTML,
         }; 
         const clipboardItem = new ClipboardItem(clipboardItemData);
-        await navigator.clipboard.write([clipboardItem]);
+        navigator.clipboard.write([clipboardItem]);
     } else {
         document.body.appendChild(div);
         div.focus();
