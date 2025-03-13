@@ -1,5 +1,5 @@
 {
-  "name": "@silevis/reactgrid",
+  "name": "grid-react-19",
   "description": "Add spreadsheet-like behavior to your React app.",
   "version": "4.1.15",
   "homepage": "https://reactgrid.com",
@@ -85,5 +85,9 @@
   "dependencies": {
     "sass": "^1.85.1",
     "tslib": "^2.8.1"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }
