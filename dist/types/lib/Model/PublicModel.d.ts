@@ -26,8 +26,10 @@ export type SelectionMode = 'row' | 'column' | 'range';
 export interface ReactGridProps {
     /** Array of `Column`s */
     readonly columns: Column[];
-    /** Array of `Row`s  */
+    /** Array of `Row`s */
     readonly rows: Row<Cell>[];
+    /** Enables column resizing on all header cells */
+    readonly enableColumnResizeOnAllHeaders?: boolean;
     /** Object that contains available custom cell templates */
     readonly customCellTemplates?: CellTemplates;
     /** Focus position (managed constantly by outer app) */
@@ -91,6 +93,11 @@ export interface ReactGridProps {
      */
     readonly minColumnWidth?: number;
     /**
+     * Minimum row height (by default `25`), in pixels
+     * Used to limit the height row can be resized down to.
+     */
+    readonly minRowHeight?: number;
+    /**
      * Called when cell was changed (e.g. property `value`)
      *
      * @param {CellChange[]} cellChanges Array of cell changes
@@ -136,6 +143,15 @@ export interface ReactGridProps {
      * @returns {void}
      */
     readonly onColumnResized?: (columnId: Id, width: number, selectedColIds: Id[]) => void;
+    /**
+     * Called when row resize action was finished
+     *
+     * @param {Id} rowId Resized row `Id`
+     * @param {number} height New row height
+     * @param {Id[]} selectedColIds Array of selected row `Id`s
+     * @returns {void}
+     */
+    readonly onRowResized?: (rowId: Id, height: number, selectedRowIds: Id[]) => void;
     /**
      * Called when row reorder action was finished
      *
@@ -519,6 +535,10 @@ export interface Row<TCell extends Cell = DefaultCellTypes> {
      * default: `false` (row reorder implementation is on the developer's side)
      */
     readonly reorderable?: boolean;
+    /** Allow row to change is height in grid,
+     * default: `false` (row resize implementation is on the developers side)
+     */
+    readonly resizable?: boolean;
 }
 /**
  * Menu option element displayed in context menu
@@ -528,8 +548,8 @@ export interface Row<TCell extends Cell = DefaultCellTypes> {
 export interface MenuOption {
     /** Text that identifies each menu option */
     id: string;
-    /** Text label displayed as its title */
-    label: string;
+    /** Label displayed as its title */
+    label: React.ReactNode;
     /**
      * Function that is called when an option is clicked
      *

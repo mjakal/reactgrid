@@ -22,12 +22,14 @@ export interface TestConfig {
     pinToBody: boolean;
     additionalContent: boolean;
     flexRow: boolean;
+    enableColumnResizeOnAllHeaders: boolean;
     rgViewportHeight: number;
     rgViewportWidth: number;
     margin: string;
     cellHeight: number;
     cellWidth: number;
     minCellWidth: number;
+    minCellHeight: number;
     fillHandleWidth: number;
     enableRangeSelection: boolean;
     enableFillHandle: boolean;

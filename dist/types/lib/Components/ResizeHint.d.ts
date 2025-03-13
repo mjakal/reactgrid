@@ -1,8 +1,14 @@
 import * as React from 'react';
-interface HintProps {
+interface HintColumnProps {
     linePosition: number;
     left: number;
     offset: number;
 }
-export declare const ResizeHint: React.FC<HintProps>;
+interface HintRowProps {
+    linePosition: number;
+    top: number;
+    offset: number;
+}
+export declare const ResizeColumnHint: React.FC<HintColumnProps>;
+export declare const ResizeRowHint: React.FC<HintRowProps>;
 export {};
