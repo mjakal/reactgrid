@@ -52,3 +52,18 @@ ReactGrid is published under the [MIT License](./LICENSE).
     <img src="public/silevis.png" alt="Silevis" width="400"/>
   </a>
 </div>
+
+# Deploy to npm
+
+```
+# run the following commands:
+npm install
+npm run build
+
+# copy build files to dist folder
+npm run pre-deploy
+
+# publish the package from the dist/ folder
+co dist/
+npm publish
+```
